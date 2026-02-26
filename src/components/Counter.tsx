@@ -1,33 +1,33 @@
 import React, { Component } from "react";
 
-//Define Props type
+//1 Define Props type
 // (Empty here because this component does not receive props)
 interface CounterProps {}
 
-//  Define State type
+// 2 Define State type
 // This is REQUIRED in TypeScript class components
 interface CounterState {
   count: number; // count must always be a number
 }
 
-//  Extend Component with Props and State types
+// 3 Extend Component with Props and State types
 class Counter extends Component<CounterProps, CounterState> {
-  // Type the state using the State interface
+  // 4 Type the state using the State interface
   state: CounterState = {
     count: 0,
   };
 
-  //  Method stays the same but now TypeScript knows the state type
+  // 5 Method stays the same but now TypeScript knows the state type
   increment = () => {
     this.setState({ count: this.state.count + 1 });
   };
 
-  //Render method (same logic, fixed return syntax)
+  //6 Render method (same logic, fixed return syntax)
   render() {
     return (
       <div>
         <p>Count: {this.state.count}</p>
-
+        {/* Event handler remains the same */}
         <button onClick={this.increment}>Increment</button>
       </div>
     );
